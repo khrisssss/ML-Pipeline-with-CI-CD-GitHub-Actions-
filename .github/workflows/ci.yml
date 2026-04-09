@@ -31,7 +31,7 @@ jobs:
         pytest
 
     - name: Log in to Docker Hub
-      uses: docker/login-action@latest
+      uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
         tags: khrisssss/ml-pipeline-frontend:latest
 
     - name: Build and push backend
-      uses: docker/build-push-action@latest
+      uses: docker/build-push-action@v5
       with:
         context: ./backend
         file: ./backend/Dockerfile
