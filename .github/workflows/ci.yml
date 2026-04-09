@@ -30,11 +30,25 @@ jobs:
         pip install pytest pytest-cov
         pytest
 
-    - name: build  and pushes docker images
-      uses: mr-smithers-excellent/docker-build-push@v6
+    - name: Log in to Docker Hub
+      uses: docker/login-action@latest
       with:
-        image: khrisssss/mlflow
-        registry: docker.io
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and push frontend
+      uses: docker/build-push-action@latest
+      with:
+        context: ./frontend
+        file: ./frontend/Dockerfile
+        push: true
+        tags: khrisssss/ml-pipeline-frontend:latest
+
+    - name: Build and push backend
+      uses: docker/build-push-action@latest
+      with:
+        context: ./backend
+        file: ./backend/Dockerfile
+        push: true
+        tags: khrisssss/ml-pipeline-backend:latest
 
