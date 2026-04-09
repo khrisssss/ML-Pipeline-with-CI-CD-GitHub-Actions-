@@ -80,3 +80,8 @@ Next, paste the code  on my vscode and edit it.
 To check for the template 
 go to github action workflow 
 since i am using python i did search python then you will see "building and testing python" click on it
+
+
+
+----------
+for the marketplace of github action of docker build and push sample template https://github.com/marketplace/actions/docker-build-push-action 
