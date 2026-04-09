@@ -31,6 +31,13 @@ jobs:
         pip install pytest pytest-cov
         pytest
 
-
+    - name: build docker images
+      run: |
+        docker build -t ml-pipeline-backend -f backend/Dockerfile .
+        docker build -t ml-pipeline-frontend -f frontend/Dockerfile .
    
+    - name: push docker images
+      run: |
+        docker push ml-pipeline-backend
+        docker push ml-pipeline-frontend
 
