@@ -45,7 +45,7 @@ jobs:
         tags: khrisssss/ml-pipeline-frontend:latest
 
     - name: Build and push backend
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v5   
       with:
         context: ./backend
         file: ./backend/Dockerfile
