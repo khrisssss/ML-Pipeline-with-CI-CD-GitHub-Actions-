@@ -2,16 +2,24 @@ import joblib
 import mlflow
 import mlflow.sklearn
 import pandas as pd
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
+from backend.app.app_api import BASE_DIR
+
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.sklearn.autolog()
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # go to project root (from backend/ml/train.py)
+DATA_PATH = os.path.join(BASE_DIR, "datas", "Iris.csv") # build path to dataset
+
+
 
 def train():
-    df = pd.read_csv("../../datas/Iris.csv")
+    df = pd.read_csv(DATA_PATH)
+    #df = pd.read_csv("../../datas/Iris.csv")
 
     train, test = train_test_split(df, test_size = 0.3)
     train_X = train[['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm']]# taking the training data features
