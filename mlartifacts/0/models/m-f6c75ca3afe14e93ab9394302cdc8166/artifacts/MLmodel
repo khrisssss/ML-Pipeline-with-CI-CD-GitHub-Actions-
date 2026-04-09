@@ -1,4 +1,4 @@
-artifact_path: mlflow-artifacts:/0/models/m-433c2b0804c1438ab6e633e40465fda2/artifacts
+artifact_path: mlflow-artifacts:/0/models/m-f6c75ca3afe14e93ab9394302cdc8166/artifacts
 flavors:
   python_function:
     env:
@@ -16,11 +16,11 @@ flavors:
     skops_trusted_types: null
 is_signature_from_type_hint: false
 mlflow_version: 3.10.1
-model_id: m-433c2b0804c1438ab6e633e40465fda2
-model_size_bytes: 136845
-model_uuid: m-433c2b0804c1438ab6e633e40465fda2
+model_id: m-f6c75ca3afe14e93ab9394302cdc8166
+model_size_bytes: 167001
+model_uuid: m-f6c75ca3afe14e93ab9394302cdc8166
 prompts: null
-run_id: 4cf8d4db149841a49dce9513ca9b2598
+run_id: 68b6b27bddeb418687c59cef92b12062
 signature:
   inputs: '[{"type": "double", "name": "SepalLengthCm", "required": true}, {"type":
     "double", "name": "SepalWidthCm", "required": true}, {"type": "double", "name":
@@ -29,4 +29,4 @@ signature:
   outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "object", "shape": [-1]}}]'
   params: null
 type_hint_from_example: false
-utc_time_created: '2026-04-07 13:50:04.503257'
+utc_time_created: '2026-04-08 13:11:53.597407'
