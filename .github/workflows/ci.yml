@@ -10,13 +10,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["pypy3.10", "3.9", "3.10", "3.11", "3.12", "3.13"]
-
+    
     steps:
+
     - uses: actions/checkout@v5
-    - name: Set up Python ${{ matrix.python-version }}
+
+    - name: Python 
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
@@ -31,13 +30,11 @@ jobs:
         pip install pytest pytest-cov
         pytest
 
-    - name: build docker images
-      run: |
-        docker build -t ml-pipeline-backend -f backend/Dockerfile .
-        docker build -t ml-pipeline-frontend -f frontend/Dockerfile .
-   
-    - name: push docker images
-      run: |
-        docker push ml-pipeline-backend
-        docker push ml-pipeline-frontend
+    - name: build  and pushes docker images
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: khrisssss/mlflow
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
