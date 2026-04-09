@@ -75,3 +75,8 @@ It automated the code inside the docker-image.yml and now I can use and edit it.
 Copy how the folder has been created and put it in VScode /.github/workflows/ci.yml
 Next, paste the code  on my vscode and edit it. 
 
+
+
+To check for the template 
+go to github action workflow 
+since i am using python i did search python then you will see "building and testing python" click on it
