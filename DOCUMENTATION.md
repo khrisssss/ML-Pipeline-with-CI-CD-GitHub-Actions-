@@ -60,3 +60,18 @@ docker build --no-cache -t backend .
 
 
 
+
+
+
+--------------------------------------------------------------
+
+
+HOw I created my yaml ?
+First, I make sure that my test work when i did pytest that it works... did my docker for the frontend and backend then I pushed it into Github. 
+Second, when everythings in place in the github. Clicked on the " actions " then you will suggested repository for you rproject. 
+Third, configure " docker image". 
+From here you will see it will generate a folder /.github/workflows/docker-image.yml (you can change the name and i did chaned mine to ci.yml) in main.
+It automated the code inside the docker-image.yml and now I can use and edit it. No need to do it in scratch.
+Copy how the folder has been created and put it in VScode /.github/workflows/ci.yml
+Next, paste the code  on my vscode and edit it. 
+
