@@ -19,7 +19,7 @@ Containerize the application (backend & frontend)
 Automate testing and deployment with CI/CD
 
 ## Project Structure 
-
+''' text
 ml_pipeline/
 ├── backend/
 │   ├── app/
@@ -41,6 +41,8 @@ ml_pipeline/
 ├── .gitignore
 │
 └── DOCUMENTATION.md    
+'''
+---
 
 ## Acknowledgment
 
@@ -54,26 +56,3 @@ There were challenges along the way, but collaboration with my teammates (YassGP
 
 
 
-
-ml_pipeline/
-├── backend/
-│   ├── app/
-│   │   ├── main.py              # Entry point for FastAPI
-│   │   └── api/                 # Endpoint logic and schemas
-│   ├── ml/
-│   │   ├── notebooks/           # EDA and experimentation
-│   │   ├── src/                 # Modular training/processing scripts
-│   │   └── models/              # Local model artifacts (gitignored)
-│   ├── tests/                   # Pytest suite
-│   ├── requirements.txt         # Backend dependencies
-│   └── Dockerfile               # Containerization for API/ML
-│
-├── frontend/
-│   ├── app.py                   # Streamlit main interface
-│   ├── components/              # UI widgets and layouts
-│   ├── requirements.txt         # Frontend dependencies
-│   └── Dockerfile               # Containerization for UI
-│
-├── docker-compose.yml           # Orchestrates both services
-├── .gitignore                   # Exclude venv, __pycache__, and .models
-└── README.md                    # Project overview and setup
