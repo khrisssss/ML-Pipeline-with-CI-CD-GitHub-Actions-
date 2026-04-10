@@ -5,7 +5,7 @@ import requests
 # API_URL = "http://localhost:8000"   works only for local development
 API_URL = os.getenv("API_URL", "http://localhost:8000")      # works for docker deployment
 
-st.title(":violet[_Yacine Classification_]")
+st.title(":violet[_Iris Classification_]")
 
 number1 = st.number_input(
     "Sepal Length (cm)", value=None, placeholder="Type a number..."
