@@ -41,10 +41,38 @@ ml_pipeline/
 ├── .gitignore
 │
 └── DOCUMENTATION.md    
-'''
+
 ## Acknowledgment
 
 This project was developed as part of the Simplon AI Developer training program.
 
 I completed this project by focusing on hands-on learning and problem-solving.
 There were challenges along the way, but collaboration with my teammates (YassGPT, LiliGPT and AhmGPT) helped me successfully complete the project.
+
+
+
+
+
+
+
+ml_pipeline/
+├── backend/
+│   ├── app/
+│   │   └── app_api.py               # Flask API
+│   │
+│   ├── ml/
+│   │   ├── train_notebook.ipynb     # Jupyter notebook for data exploration
+│   │   └── train.py                 # Train the model with MLflow
+│   │
+│   ├── test/
+│   │   └── test_predict.py          # Verify that the model can be loaded
+│   │
+│   └── Dockerfile                   # Backend Dockerfile
+│
+├── frontend/
+│   ├── app/                         # Streamlit frontend
+│   └── Dockerfile                   # Frontend Dockerfile
+│
+├── .gitignore
+│
+└── DOCUMENTATION.md    
