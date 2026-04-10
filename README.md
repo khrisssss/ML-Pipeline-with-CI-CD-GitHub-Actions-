@@ -8,8 +8,6 @@ understanding the concepts
 writing the code independently
 solving problems through practice and collaboration
 
-This approach helped strengthen my fundamentals in machine learning and software development.
-
 ### Objective 
 The goal of this project is to:
 
