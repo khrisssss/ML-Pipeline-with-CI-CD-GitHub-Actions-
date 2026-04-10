@@ -1,8 +1,9 @@
+import os
 import streamlit as st
-import joblib
 import requests
 
-backend_url = "http://localhost:8000"
+# API_URL = "http://localhost:8000"   works only for local development
+API_URL = os.getenv("API_URL", "http://localhost:8000")      # works for docker deployment
 
 st.title(":violet[_Iris Classification_]")
 
@@ -30,7 +31,7 @@ if st.button("Predict"):
         "PetalWidthCm": number4
     }
 
-    response = requests.post(f"{backend_url}/predict", json=item)
+    response = requests.post(f"{API_URL}/predict", json=item)
     if response.status_code == 200:
         prediction = response.json().get("prediction")
         st.success(f"Predicted class: {prediction}")
