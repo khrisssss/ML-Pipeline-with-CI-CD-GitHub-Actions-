@@ -1,6 +1,6 @@
 # About the Project
 
-As part of this project, our teacher Bob challenged us to build the solution without relying on Large Language Models (LLMs).
+As part of this project, our teacher Bob challenged me to build the solution without relying on Large Language Models (LLMs).
 
 Instead, the focus was on:
 
