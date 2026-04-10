@@ -19,6 +19,7 @@ Containerize the application (backend & frontend)
 Automate testing and deployment with CI/CD
 
 # Project Structure 
+'''bash
 ml_pipeline/
 ├── backend/
 │   ├── app/
@@ -39,7 +40,8 @@ ml_pipeline/
 │
 ├── .gitignore
 │
-└── DOCUMENTATION.md       
+└── DOCUMENTATION.md    
+'''   
 --------------------------------------------------------------------------------------------------------------------------
 # Acknowledgment
 
