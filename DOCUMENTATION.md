@@ -29,7 +29,10 @@ ml_pipeline/
 
 # Launching in local 
 
-##### for the backend 
+#### to train the model 
+
+
+#### for the backend 
 
 ''' bash 
 #backend/app
@@ -85,3 +88,19 @@ since i am using python i did search python then you will see "building and test
 
 ----------
 for the marketplace of github action of docker build and push sample template https://github.com/marketplace/actions/docker-build-push-action 
+
+
+
+
+
+---------------------------------- -------
+when creating a second pipeline to train the model i have to change my code from 
+train.py 
+df = pd.read_csv("../../datas/Iris.csv")    this code only work in local 
+
+to 
+
+os.path.dirname(path, /)
+Return the directory name of pathname path. This is the first element of the pair returned by passing path to the function split().
+
+have to remove mlflow.db for the 2nd pipeline 

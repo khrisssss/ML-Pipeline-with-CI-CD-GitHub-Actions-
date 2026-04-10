@@ -1,0 +1,8 @@
+.venv/
+*.venv/bin/activate
+__pycache__/
+*.pyc
+.data/
+*.sqlite
+mlflow.db
+mlruns/
