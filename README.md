@@ -19,6 +19,7 @@ Containerize the application (backend & frontend)
 Automate testing and deployment with CI/CD
 
 ## Project Structure 
+''' text
 ml_pipeline/
 ├── backend/
 │   ├── app/
