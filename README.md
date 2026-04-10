@@ -58,20 +58,20 @@ There were challenges along the way, but collaboration with my teammates (YassGP
 ml_pipeline/
 ├── backend/
 │   ├── app/
-│   │   └── app_api.py               # Flask API
+│   │   └── app_api.py               
 │   │
 │   ├── ml/
-│   │   ├── train_notebook.ipynb     # Jupyter notebook for data exploration
-│   │   └── train.py                 # Train the model with MLflow
+│   │   ├── train_notebook.ipynb     
+│   │   └── train.py                
 │   │
 │   ├── test/
-│   │   └── test_predict.py          # Verify that the model can be loaded
+│   │   └── test_predict.py          
 │   │
-│   └── Dockerfile                   # Backend Dockerfile
+│   └── Dockerfile                   
 │
 ├── frontend/
-│   ├── app/                         # Streamlit frontend
-│   └── Dockerfile                   # Frontend Dockerfile
+│   ├── app/                        
+│   └── Dockerfile                   
 │
 ├── .gitignore
 │
