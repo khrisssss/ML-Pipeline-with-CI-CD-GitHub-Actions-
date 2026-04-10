@@ -1,8 +1,11 @@
-This is a simple project with MLFlow to train the dataset of iris flowers using logisticregression.
+This is a simple machine learning project using MLflow to train a model on the Iris dataset, applying logistic regression.
 
-We the students, trained the data to predict 3 kind of variety of iris flowers using the sepals and petals length and width (in cm).
-In this project I did not use LLM at all.
+As students from Simplon, this project is part of our training. We trained a model to predict three different varieties of Iris flowers based on sepal and petal length and width (in cm).
 
+I am proud to say that I completed this project without relying on LLMs. While there were some challenges, my colleagues were always there to support me.
+I would like to thank all my teammates who helped make this project successful.
+
+### Objective of this project is to understand how to build the CI/CD Pipeline in Github Actions and Deploy it in Azure. 
 
 # Project Structure 
 ml_pipeline/
@@ -12,39 +15,41 @@ ml_pipeline/
 │   │
 │   ├── ml/
 │   │   ├── train_notebook.ipynb     # Jupyter notebook used for exploration to check the data
-│   │   └── train.py
+│   │   └── train.py                 # Train the data with MLflow 
 │   │
 │   ├── test/
-│   │   └── test_predict.py
+│   │   └── test_predict.py          # Verify that the model can be properly loaded
 │   │
-│   └── Dockerfile
+│   └── Dockerfile                   # Dockerfile for backend
 │   
 ├── frontend/
-│   ├── app
-│   └── Dockerfile      
+│   ├── app                          # front using streamlit
+│   └── Dockerfile                   # Dockerfile for frontend
 │                
 ├── .gitignore                
 │                   
 └──  DOCUMENTATION.md           
+--------------------------------------------------------------------------------------------------------
 
 # Launching in local 
 
-#### to train the model 
-
+#### to launch front with streamlit
+frontend
+'''bash 
+streamlit run app.py
+'''
 
 #### for the backend 
-
+backend/app
 ''' bash 
-#backend/app
 uvicorn app_api:app 
 '''
 
-#### for the frontend
-
-''' bash 
-#frontend/app
-streamlit run app.py
+#### to launch mlflow
+''' bash
+mlflow ui
 '''
+
 
 # test 
 Wen you do a test if the connection is correct make sure you are just in the folder of ml_pipeline then run 
@@ -55,52 +60,73 @@ If you see i collected an item and its not failed then connection is good
 
 
 
-#### to build the imahe of backend docker file
+#### to build the image of backend docker file
+ml_pipeline/backend
 ''' bash 
-#ml_pipeline/backend
 docker build --no-cache -t backend .
 '''  
+------------------------------------------------------------------------------------------------------------
+
+# API Docs
+Endpoints 
+
+| Method | Route      | Description                  | Request Body          | Response Example                  |
+| ------ | ---------- | ---------------------------- | --------------------- | --------------------------------- |
+| GET    | `/`        | Check if the API is running  | None                  | `{ "status": "ok" }`              |
+| POST   | `/predict` | Predict Iris flower category | JSON input (features) | `{ "prediction": "Iris-setosa" }` |
+
+POST /predict details 
+| Field         | Type  | Description        |
+| ------------- | ----- | ------------------ |
+| SepalLengthCm | float | Sepal length in cm |
+| SepalWidthCm  | float | Sepal width in cm  |
+| PetalLengthCm | float | Petal length in cm |
+| PetalWidthCm  | float | Petal width in cm  |
 
 
+------------------------------------------------------------------------------------------------------------
+
+# How I Created My YAML (CI/CD Workflow)
+
+First, I made sure that my tests were working correctly by running pytest locally. Once everything passed, I created Docker configurations for both the frontend and backend, and pushed the project to GitHub.
+Second, after everything was in place on GitHub, I went to the “Actions” tab. GitHub suggested workflow templates based on my project.
+Third, I selected the “Docker image” workflow template. GitHub automatically generated a workflow file located at:
+
+.github/workflows/docker-image.yml
+
+I then renamed this file to ci.yml to better match my project.
+This generated file provided a ready-made structure, so I didn’t need to write the YAML from scratch. I copied this workflow into my local project in VS Code under:
+
+.github/workflows/ci.yml
+
+Next, I edited the YAML file to fit my project requirements (such as adding test steps, Docker build, and push configuration).
+How I Found the Right Template
+To explore more templates, I went to GitHub Actions workflows and searched for Python. I found the “Build and test Python” template, which helped me understand how to structure testing steps in my pipeline.
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
---------------------------------------------------------------
+When creating a second pipeline to train the model, I had to update my code in train.py.
 
+At first, I was using:
 
-HOw I created my yaml ?
-First, I make sure that my test work when i did pytest that it works... did my docker for the frontend and backend then I pushed it into Github. 
-Second, when everythings in place in the github. Clicked on the " actions " then you will suggested repository for you rproject. 
-Third, configure " docker image". 
-From here you will see it will generate a folder /.github/workflows/docker-image.yml (you can change the name and i did chaned mine to ci.yml) in main.
-It automated the code inside the docker-image.yml and now I can use and edit it. No need to do it in scratch.
-Copy how the folder has been created and put it in VScode /.github/workflows/ci.yml
-Next, paste the code  on my vscode and edit it. 
+df = pd.read_csv("../../datas/Iris.csv")
 
+This worked only in my local environment because the relative path depended on where I launched the script.
 
+To make the code work both locally and inside the pipeline, I changed it to use os.path.dirname() and os.path.join() so the dataset path is built dynamically based on the file location.
 
-To check for the template 
-go to github action workflow 
-since i am using python i did search python then you will see "building and testing python" click on it
+For example:
 
+import os
+import pandas as pd
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+DATA_PATH = os.path.join(BASE_DIR, "datas", "Iris.csv")
 
-----------
-for the marketplace of github action of docker build and push sample template https://github.com/marketplace/actions/docker-build-push-action 
+df = pd.read_csv(DATA_PATH)
 
+This approach is more reliable because it does not depend on the current working directory.
 
-
-
-
----------------------------------- -------
-when creating a second pipeline to train the model i have to change my code from 
-train.py 
-df = pd.read_csv("../../datas/Iris.csv")    this code only work in local 
-
-to 
-
-os.path.dirname(path, /)
-Return the directory name of pathname path. This is the first element of the pair returned by passing path to the function split().
-
-have to remove mlflow.db for the 2nd pipeline 
+I also had to remove mlflow.db from the second pipeline, because it should not be reused or committed as a fixed local file in the workflow environment.
