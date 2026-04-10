@@ -8,7 +8,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 
-mlflow.set_tracking_uri("http://localhost:5000")
+#mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.sklearn.autolog()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # go to project root (from backend/ml/train.py)
