@@ -9,26 +9,26 @@ I would like to thank all my teammates who helped make this project successful.
 
 # Project Structure 
 ml_pipeline/
-├── backend/                         
+├── backend/
 │   ├── app/
-│   │   └── app_api.py               # Flask API 
+│   │   └── app_api.py               # Flask API
 │   │
 │   ├── ml/
-│   │   ├── train_notebook.ipynb     # Jupyter notebook used for exploration to check the data
-│   │   └── train.py                 # Train the data with MLflow 
+│   │   ├── train_notebook.ipynb     # Jupyter notebook for data exploration
+│   │   └── train.py                 # Train the model with MLflow
 │   │
 │   ├── test/
-│   │   └── test_predict.py          # Verify that the model can be properly loaded
+│   │   └── test_predict.py          # Verify that the model can be loaded
 │   │
-│   └── Dockerfile                   # Dockerfile for backend
-│   
+│   └── Dockerfile                   # Backend Dockerfile
+│
 ├── frontend/
-│   ├── app                          # front using streamlit
-│   └── Dockerfile                   # Dockerfile for frontend
-│                
-├── .gitignore                
-│                   
-└──  DOCUMENTATION.md           
+│   ├── app/                         # Streamlit frontend
+│   └── Dockerfile                   # Frontend Dockerfile
+│
+├── .gitignore
+│
+└── DOCUMENTATION.md       
 --------------------------------------------------------------------------------------------------------
 
 # Launching in local 
