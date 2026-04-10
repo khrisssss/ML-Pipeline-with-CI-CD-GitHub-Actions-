@@ -19,29 +19,21 @@ Containerize the application (backend & frontend)
 Automate testing and deployment with CI/CD
 
 ## Project Structure 
-''' text
 ml_pipeline/
 ├── backend/
 │   ├── app/
-│   │   └── app_api.py               # Flask API
-│   │
+│   │   └── app_api.py          # Flask API
 │   ├── ml/
-│   │   ├── train_notebook.ipynb     # Jupyter notebook for data exploration
-│   │   └── train.py                 # Train the model with MLflow
-│   │
+│   │   ├── train_notebook.ipynb # Jupyter notebook
+│   │   └── train.py            # Train the model with MLflow
 │   ├── test/
-│   │   └── test_predict.py          # Verify that the model can be loaded
-│   │
-│   └── Dockerfile                   # Backend Dockerfile
-│
+│   │   └── test_predict.py      # Verify model loading
+│   └── Dockerfile               # Backend Dockerfile
 ├── frontend/
-│   ├── app/                         # Streamlit frontend
-│   └── Dockerfile                   # Frontend Dockerfile
-│
+│   ├── app/                    # Streamlit frontend
+│   └── Dockerfile               # Frontend Dockerfile
 ├── .gitignore
-│
-└── DOCUMENTATION.md    
-'''
+└── DOCUMENTATION.md
 ---
 
 ## Acknowledgment
