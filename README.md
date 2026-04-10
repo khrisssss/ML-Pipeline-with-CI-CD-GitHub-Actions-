@@ -18,8 +18,8 @@ Serve predictions through an API
 Containerize the application (backend & frontend)
 Automate testing and deployment with CI/CD
 
-# Project Structure 
-'''bash
+## Project Structure 
+
 ml_pipeline/
 ├── backend/
 │   ├── app/
@@ -41,9 +41,8 @@ ml_pipeline/
 ├── .gitignore
 │
 └── DOCUMENTATION.md    
-'''   
---------------------------------------------------------------------------------------------------------------------------
-# Acknowledgment
+'''
+## Acknowledgment
 
 This project was developed as part of the Simplon AI Developer training program.
 
