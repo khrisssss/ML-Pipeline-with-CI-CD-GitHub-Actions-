@@ -58,21 +58,22 @@ There were challenges along the way, but collaboration with my teammates (YassGP
 ml_pipeline/
 ├── backend/
 │   ├── app/
-│   │   └── app_api.py               
-│   │
+│   │   ├── main.py              # Entry point for FastAPI
+│   │   └── api/                 # Endpoint logic and schemas
 │   ├── ml/
-│   │   ├── train_notebook.ipynb     
-│   │   └── train.py                
-│   │
-│   ├── test/
-│   │   └── test_predict.py          
-│   │
-│   └── Dockerfile                   
+│   │   ├── notebooks/           # EDA and experimentation
+│   │   ├── src/                 # Modular training/processing scripts
+│   │   └── models/              # Local model artifacts (gitignored)
+│   ├── tests/                   # Pytest suite
+│   ├── requirements.txt         # Backend dependencies
+│   └── Dockerfile               # Containerization for API/ML
 │
 ├── frontend/
-│   ├── app/                        
-│   └── Dockerfile                   
+│   ├── app.py                   # Streamlit main interface
+│   ├── components/              # UI widgets and layouts
+│   ├── requirements.txt         # Frontend dependencies
+│   └── Dockerfile               # Containerization for UI
 │
-├── .gitignore
-│
-└── DOCUMENTATION.md    
+├── docker-compose.yml           # Orchestrates both services
+├── .gitignore                   # Exclude venv, __pycache__, and .models
+└── README.md                    # Project overview and setup
